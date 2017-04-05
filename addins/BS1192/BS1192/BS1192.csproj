@@ -7,8 +7,8 @@
     <ProjectGuid>{2D73B85D-EA26-45A0-BA2E-BA8D2557B860}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BS1192</RootNamespace>
-    <AssemblyName>BS1192</AssemblyName>
+    <RootNamespace>UKBIMStandards</RootNamespace>
+    <AssemblyName>UKBIMStandards</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -4,32 +4,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BS1192
+namespace UKBIMStandards
 {
-    public class Role
+    public static partial class BS1192
     {
-        private Role.BS1192Roles CurrentRole { get; set; }
-
-        public enum BS1192Roles
+        public enum Roles
         {
             Architect,
             Structural,
             MEP,
             Construction
         }
+        public static Roles CurrentRole { get; set; }
 
-        public BS1192Roles GetCurrentRole()
+        /// <summary>
+        /// Retrieves the currently set role
+        /// </summary>
+        /// <returns>The current role as a BS1192.Roles object</returns>
+        public static Roles GetCurrentRole()
         {
             return CurrentRole;
         }
 
-        public Role SetRole(BS1192Roles role)
+        /// <summary>
+        /// Sets the current role to the specified one.
+        /// </summary>
+        /// <param name="role">The role to set current one to.</param>
+        /// <returns>The updated current role.</returns>
+        public static Roles SetRole(Roles role)
         {
             if (role == null) throw new Exception("Specified role cannot be empty or null");
-            if (role.GetType() != new BS1192Roles().GetType()) throw new Exception("Supplied role is not a valid BS1192 role");
+            if (role.GetType() != new Roles().GetType()) throw new Exception("Supplied role is not a valid BS1192 role");
 
-            this.CurrentRole = role;
-            return this;
+            BS1192.CurrentRole = role;
+            return BS1192.CurrentRole;
         }
     }
 }
+
