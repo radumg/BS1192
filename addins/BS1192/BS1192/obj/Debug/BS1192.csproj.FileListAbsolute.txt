@@ -2,3 +2,4 @@ C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\bin\Debug\
 C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\bin\Debug\UKBIMStandards.pdb
 C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\obj\Debug\UKBIMStandards.dll
 C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\obj\Debug\UKBIMStandards.pdb
+C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\obj\Debug\BS1192.csprojResolveAssemblyReference.cache

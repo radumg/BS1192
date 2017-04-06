@@ -6,15 +6,32 @@ using System.Threading.Tasks;
 
 namespace UKBIMStandards
 {
+    public enum Roles
+    {
+        A,
+        B,
+        C,
+        D,
+        E,
+        F,
+        G,
+        H,
+        I,
+        K,
+        L,
+        M,
+        P,
+        Q,
+        S,
+        T,
+        W,
+        X,
+        Y,
+        Z
+    }
+
     public static partial class BS1192
     {
-        public enum Roles
-        {
-            Architect,
-            Structural,
-            MEP,
-            Construction
-        }
         public static Roles CurrentRole { get; set; }
 
         /// <summary>

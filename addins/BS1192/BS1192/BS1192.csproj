@@ -40,8 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Field.cs" />
     <Compile Include="Classes\Revision.cs" />
     <Compile Include="Classes\Roles.cs" />
+    <Compile Include="Classes\Suitability.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
