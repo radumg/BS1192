@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UKBIMStandards;
+using BS1192;
 
 namespace DebugApp
 {
@@ -11,7 +11,7 @@ namespace DebugApp
     {
         static void Main(string[] args)
         {
-            var rev1 = new UKBIMStandards.BS1192.Revision();
+            var rev1 = new BS1192.Revision();
             Console.WriteLine("Fresh revision  : " + rev1.GetAsString());
             Console.WriteLine("Increment major : " + rev1.IncrementMajor().GetAsString());
             Console.WriteLine("Increment minor : " + rev1.IncrementMinor().GetAsString());
@@ -42,9 +42,9 @@ namespace DebugApp
             hl();
 
             Console.WriteLine("Roles");
-            Console.WriteLine("Default role \t: " + BS1192.GetCurrentRole());
-            Console.Write("Set to Struct \t: "); BS1192.SetRole(BS1192.Roles.Structural); Console.WriteLine(BS1192.GetCurrentRole());
-            Console.Write("Set to MEP  \t: "); BS1192.SetRole(BS1192.Roles.MEP); Console.WriteLine(BS1192.GetCurrentRole());
+            Console.WriteLine("Default role \t: " + BS1192.Role.CurrentRole);
+            Console.Write("Set to Struct \t: "); BS1192.Role.SetRole(BS1192.Roles.S); Console.WriteLine(BS1192.Role.CurrentRole);
+            Console.Write("Set to MEP  \t: "); BS1192.Role.SetRole(BS1192.Roles.M); Console.WriteLine(BS1192.Role.CurrentRole);
 
             Console.ReadKey();
         }

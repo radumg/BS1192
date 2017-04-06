@@ -6,3 +6,4 @@ C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\bin\Debu
 C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\obj\Debug\DebugApp.csprojResolveAssemblyReference.cache
 C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\obj\Debug\DebugApp.exe
 C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\obj\Debug\DebugApp.pdb
+C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\bin\Debug\UKBIMStandards.xml

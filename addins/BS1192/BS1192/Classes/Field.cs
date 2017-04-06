@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UKBIMStandards
+namespace BS1192
 {
     class Field
     {
