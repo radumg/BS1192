@@ -34,7 +34,7 @@ namespace BS1192.Classes
         public Deliverable()
         {
             this.ProjectCode = new Field() { Required = true, NumberOfChars = 6 } ;
-            this.Originator = new Field() { Required = true, NumberOfChars=6 ;
+            this.Originator = new Field() { Required = true, NumberOfChars = 6 } ;
             this.Volume = new Field();
             this.Level = new Field();
             this.FileType = new BS1192.FileType();

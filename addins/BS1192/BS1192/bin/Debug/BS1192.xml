@@ -4,18 +4,38 @@
         <name>BS1192</name>
     </assembly>
     <members>
-        <member name="M:BS1192.Field.Validate">
+        <member name="M:BS1192.Field.Validate(System.String)">
             <summary>
             Perform basic data validation : checks the field is not empty and that the number of characters is satisfied.
             </summary>
             <returns>True if valid, false otherwise.</returns>
         </member>
-        <member name="M:BS1192.Field.Verify">
+        <member name="M:BS1192.Field.Verify(System.String)">
             <summary>
             Skeleton implementation of data verification designed to be overriden.
             Example verifies that the field only contains alphanumeric characters.
             </summary>
             <returns>True if conditions are satisfied, false otherwise.</returns>
+        </member>
+        <member name="T:BS1192.FileType">
+            <summary>
+            Represents the file types that BS1192 can describe, such as M3 (3D models), CR (Clash rendition), etc
+            </summary>
+        </member>
+        <member name="T:BS1192.FileType.BS1192_ModelFile">
+            <summary>
+            Represents file types for drawings and models	
+            </summary>
+        </member>
+        <member name="T:BS1192.FileType.BS1192_Document">
+            <summary>
+            Represents file types for documents	
+            </summary>
+        </member>
+        <member name="M:BS1192.FileType.#ctor">
+            <summary>
+            Build a BS1192 file type
+            </summary>
         </member>
         <member name="T:BS1192.Revision">
             <summary>
@@ -24,7 +44,7 @@
         </member>
         <member name="M:BS1192.Revision.#ctor(System.Int32,System.Int32,System.String)">
             <summary>
-            Create a BS1192-compatible revision
+            Build a BS1192-compatible revision
             </summary>
             <param name="major">The major part of a revision.
             XX in example : PXX.yy</param>
@@ -67,12 +87,52 @@
             prefix is P, major is 1, minor is 0 : P01.00
             </summary>
         </member>
-        <member name="M:BS1192.Role.SetRole(BS1192.Roles)">
+        <member name="T:BS1192.Role">
+            <summary>
+            Represents the role of an organisation as per BS1192.
+            </summary>
+        </member>
+        <member name="P:BS1192.Role.CurrentRole">
+            <summary>
+            The currently assigned role. 
+            </summary>
+        </member>
+        <member name="T:BS1192.Role.BS1192_Role">
+            <summary>
+            A list of the supported BS1192 Role codes
+            </summary>
+        </member>
+        <member name="F:BS1192.Role.BS1192_Role.A">
+            <summary>
+            Architect
+            </summary>
+        </member>
+        <member name="F:BS1192.Role.BS1192_Role.C">
+            <summary>
+            Civil Engineer
+            </summary>
+        </member>
+        <member name="F:BS1192.Role.BS1192_Role.Z">
+            <summary>
+            General (non-disciplinary)
+            </summary>
+        </member>
+        <member name="M:BS1192.Role.SetRole(BS1192.Role.BS1192_Role)">
             <summary>
             Sets the current role to the specified one.
             </summary>
             <param name="role">The role to set current one to.</param>
             <returns>The updated current role.</returns>
+        </member>
+        <member name="M:BS1192.Role.#ctor">
+            <summary>
+            Build a BS1192 Role.
+            </summary>
+        </member>
+        <member name="M:BS1192.Suitability.#ctor">
+            <summary>
+            Build a BS1192 Suitability.
+            </summary>
         </member>
     </members>
 </doc>

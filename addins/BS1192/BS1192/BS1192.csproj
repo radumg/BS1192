@@ -44,7 +44,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Deliverable.cs" />
     <Compile Include="Classes\Field.cs" />
+    <Compile Include="Classes\Files.cs" />
     <Compile Include="Classes\Revision.cs" />
     <Compile Include="Classes\Roles.cs" />
     <Compile Include="Classes\Suitability.cs" />
