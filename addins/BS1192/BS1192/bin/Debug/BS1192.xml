@@ -4,45 +4,60 @@
         <name>BS1192</name>
     </assembly>
     <members>
-        <member name="M:BS1192.Field.Validate(System.String)">
+        <member name="M:BS1192.Fields.Utils.DictionaryFromType(System.Object)">
+            <summary>
+            Get the list of properties of an object
+            </summary>
+            <param name="obj">The object to retrieve properties of.</param>
+            <returns>A Dictionary with Property Name as the key and its corresponding Value</returns>
+        </member>
+        <member name="M:BS1192.Fields.Utils.GetPropertyValues(System.Object,System.Collections.Generic.List{System.String})">
+            <summary>
+            Get the property values of a class based on the property names supplied
+            </summary>
+            <param name="field">Object holding the properties</param>
+            <param name="propertyName">Properties names, as a list of strings</param>
+            <returns>The values of the specified properties, as a list</returns>
+        </member>
+        <member name="M:BS1192.Fields.Field.Validate(System.String)">
             <summary>
             Perform basic data validation : checks the field is not empty and that the number of characters is satisfied.
             </summary>
             <returns>True if valid, false otherwise.</returns>
         </member>
-        <member name="M:BS1192.Field.Verify(System.String)">
+        <member name="M:BS1192.Fields.Field.Verify(System.String)">
             <summary>
             Skeleton implementation of data verification designed to be overriden.
             Example verifies that the field only contains alphanumeric characters.
             </summary>
             <returns>True if conditions are satisfied, false otherwise.</returns>
         </member>
-        <member name="T:BS1192.FileType">
+        <member name="T:BS1192.Fields.FileType">
             <summary>
             Represents the file types that BS1192 can describe, such as M3 (3D models), CR (Clash rendition), etc
             </summary>
         </member>
-        <member name="T:BS1192.FileType.BS1192_ModelFile">
+        <member name="T:BS1192.Fields.FileType.BS1192_ModelFile">
             <summary>
             Represents file types for drawings and models	
             </summary>
         </member>
-        <member name="T:BS1192.FileType.BS1192_Document">
+        <member name="T:BS1192.Fields.FileType.BS1192_Document">
             <summary>
             Represents file types for documents	
             </summary>
         </member>
-        <member name="M:BS1192.FileType.#ctor">
+        <member name="M:BS1192.Fields.FileType.#ctor">
             <summary>
             Build a BS1192 file type
             </summary>
         </member>
-        <member name="T:BS1192.Revision">
+        <member name="T:BS1192.Fields.Revision">
             <summary>
             Represents a revision following the BS1192 standard.
             </summary>
         </member>
-        <member name="M:BS1192.Revision.#ctor(System.Int32,System.Int32,System.String)">
+        <member name="M:BS1192.Fields.Revision.#ctor(System.Int32,System.Int32,System.String)">
             <summary>
             Build a BS1192-compatible revision
             </summary>
@@ -53,86 +68,98 @@
             <param name="prefix">The prefix of a revision.
             P in example L PXX.yy</param>
         </member>
-        <member name="M:BS1192.Revision.GetAsString">
+        <member name="M:BS1192.Fields.Revision.GetAsString">
             <summary>
             Get the revision formatted as per BS1192.
             </summary>
             <returns>Returns a revision formatted as per BS1192. Example : P03.07 , where 03 is the major, 07 is the minor and P the prefix</returns>
         </member>
-        <member name="M:BS1192.Revision.IncrementMinor">
+        <member name="M:BS1192.Fields.Revision.IncrementMinor">
             <summary>
             Increments the minor part of the revision (yy in this example : PXX.yy)
             </summary>
         </member>
-        <member name="M:BS1192.Revision.IncrementMajor">
+        <member name="M:BS1192.Fields.Revision.IncrementMajor">
             <summary>
             Increments the major part of the revision (XX in this example : PXX.yy). Please note, it also resets the minor to 0 as per BS1192.
             </summary>
         </member>
-        <member name="M:BS1192.Revision.SetMinor(System.Int32)">
+        <member name="M:BS1192.Fields.Revision.SetMinor(System.Int32)">
             <summary>
             Sets the minor part of a revision to a specified integer value.
             </summary>
             <param name="minor">The integer to set minor to. Only accepts 0-99.</param>
         </member>
-        <member name="M:BS1192.Revision.SetMajor(System.Int32)">
+        <member name="M:BS1192.Fields.Revision.SetMajor(System.Int32)">
             <summary>
             Sets the major part of a revision to a specified integer value.
             </summary>
             <param name="major">The integer to set minor to. Only accepts 1-99.</param>
         </member>
-        <member name="M:BS1192.Revision.Reset">
+        <member name="M:BS1192.Fields.Revision.Reset">
             <summary>
             Resets the revision to default values.
             prefix is P, major is 1, minor is 0 : P01.00
             </summary>
         </member>
-        <member name="T:BS1192.Role">
+        <member name="T:BS1192.Fields.Role">
             <summary>
             Represents the role of an organisation as per BS1192.
             </summary>
         </member>
-        <member name="P:BS1192.Role.CurrentRole">
+        <member name="P:BS1192.Fields.Role.CurrentRole">
             <summary>
             The currently assigned role. 
             </summary>
         </member>
-        <member name="T:BS1192.Role.BS1192_Role">
+        <member name="T:BS1192.Fields.Role.BS1192_Role">
             <summary>
             A list of the supported BS1192 Role codes
             </summary>
         </member>
-        <member name="F:BS1192.Role.BS1192_Role.A">
+        <member name="F:BS1192.Fields.Role.BS1192_Role.A">
             <summary>
             Architect
             </summary>
         </member>
-        <member name="F:BS1192.Role.BS1192_Role.C">
+        <member name="F:BS1192.Fields.Role.BS1192_Role.C">
             <summary>
             Civil Engineer
             </summary>
         </member>
-        <member name="F:BS1192.Role.BS1192_Role.Z">
+        <member name="F:BS1192.Fields.Role.BS1192_Role.Z">
             <summary>
             General (non-disciplinary)
             </summary>
         </member>
-        <member name="M:BS1192.Role.SetRole(BS1192.Role.BS1192_Role)">
+        <member name="M:BS1192.Fields.Role.SetRole(BS1192.Fields.Role.BS1192_Role)">
             <summary>
             Sets the current role to the specified one.
             </summary>
             <param name="role">The role to set current one to.</param>
             <returns>The updated current role.</returns>
         </member>
-        <member name="M:BS1192.Role.#ctor">
+        <member name="M:BS1192.Fields.Role.#ctor">
             <summary>
             Build a BS1192 Role.
             </summary>
         </member>
-        <member name="M:BS1192.Suitability.#ctor">
+        <member name="M:BS1192.Fields.Suitability.#ctor">
             <summary>
             Build a BS1192 Suitability.
             </summary>
+        </member>
+        <member name="M:BS1192.Deliverable.GetFormattedName">
+            <summary>
+            Get the BS1192-formatted name of the deliverable
+            </summary>
+            <returns>BS1192-formatted name of the deliverable, as string.</returns>
+        </member>
+        <member name="M:BS1192.Deliverable.GetAllFieldValues">
+            <summary>
+            Get the values of all the public properties
+            </summary>
+            <returns>The list of values for all the object's properties.</returns>
         </member>
     </members>
 </doc>

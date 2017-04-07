@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BS1192
+namespace BS1192.Fields
 {
     /// <summary>
     /// Represents a revision following the BS1192 standard.

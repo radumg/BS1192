@@ -44,12 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fields\Utils.cs" />
     <Compile Include="Deliverable.cs" />
-    <Compile Include="Classes\Field.cs" />
-    <Compile Include="Classes\Files.cs" />
-    <Compile Include="Classes\Revision.cs" />
-    <Compile Include="Classes\Roles.cs" />
-    <Compile Include="Classes\Suitability.cs" />
+    <Compile Include="Fields\GenericField.cs" />
+    <Compile Include="Fields\Files.cs" />
+    <Compile Include="Fields\Revision.cs" />
+    <Compile Include="Fields\Roles.cs" />
+    <Compile Include="Fields\Suitability.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

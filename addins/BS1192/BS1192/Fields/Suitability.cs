@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BS1192
+namespace BS1192.Fields
 {
     public enum SuitabilityCode
     {
@@ -31,7 +31,7 @@ namespace BS1192
         NonGraphical,
         Document
     }
-    public class Suitability
+    public class Suitability : Field
     {
         public SuitabilityCode Status { get; set; }
         public string Description { get; set; }
