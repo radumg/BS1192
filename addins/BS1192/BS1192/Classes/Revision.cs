@@ -9,7 +9,7 @@ namespace BS1192
     /// <summary>
     /// Represents a revision following the BS1192 standard.
     /// </summary>
-    public class Revision
+    public class Revision : Field
     {
         // these public strings are used to represent the revision as a string
         public string Major
@@ -44,7 +44,7 @@ namespace BS1192
         private string prefix;
 
         /// <summary>
-        /// Create a BS1192-compatible revision
+        /// Build a BS1192-compatible revision
         /// </summary>
         /// <param name="major">The major part of a revision.
         /// XX in example : PXX.yy</param>
@@ -62,6 +62,9 @@ namespace BS1192
             this.major = major;
             this.minor = minor;
             this.prefix = prefix;
+
+            this.Required = false;
+            this.NumberOfChars = 6;
         }
 
         /// <summary>

@@ -6,46 +6,72 @@ using System.Threading.Tasks;
 
 namespace BS1192
 {
-    public enum Roles
+    /// <summary>
+    /// Represents the role of an organisation as per BS1192.
+    /// </summary>
+    public class Role : Field
     {
-        A,
-        B,
-        C,
-        D,
-        E,
-        F,
-        G,
-        H,
-        I,
-        K,
-        L,
-        M,
-        P,
-        Q,
-        S,
-        T,
-        W,
-        X,
-        Y,
-        Z
-    }
+        /// <summary>
+        /// The currently assigned role. 
+        /// </summary>
+        public BS1192_Role CurrentRole { get; set; }
 
-    public static class Role
-    {
-        public static Roles CurrentRole { get; set; }
+        /// <summary>
+        /// A list of the supported BS1192 Role codes
+        /// </summary>
+        public enum BS1192_Role
+        {
+            /// <summary>
+            /// Architect
+            /// </summary>
+            A,
+            B,
+            /// <summary>
+            /// Civil Engineer
+            /// </summary>
+            C,
+            D,
+            E,
+            F,
+            G,
+            H,
+            I,
+            K,
+            L,
+            M,
+            P,
+            Q,
+            S,
+            T,
+            W,
+            X,
+            Y,
+            /// <summary>
+            /// General (non-disciplinary)
+            /// </summary>
+            Z
+        }
 
         /// <summary>
         /// Sets the current role to the specified one.
         /// </summary>
         /// <param name="role">The role to set current one to.</param>
         /// <returns>The updated current role.</returns>
-        public static Roles SetRole(Roles role)
+        public BS1192_Role SetRole(BS1192_Role role)
         {
-            if (role == null) throw new ArgumentNullException("Specified role cannot be empty or null");
-            if (role.GetType() != new Roles().GetType()) throw new InvalidCastException("Supplied argumet is not a valid BS1192 role");
+            if (role.GetType() != new BS1192_Role().GetType()) throw new InvalidCastException("Supplied argumet is not a valid BS1192 role");
 
-            Role.CurrentRole = role;
-            return Role.CurrentRole;
+            this.CurrentRole = role;
+            return this.CurrentRole;
+        }
+
+        /// <summary>
+        /// Build a BS1192 Role.
+        /// </summary>
+        public Role()
+        {
+            this.Required = true;
+            this.NumberOfChars = 1;
         }
     }
 }

@@ -31,13 +31,16 @@ namespace BS1192
         NonGraphical,
         Document
     }
-    class Suitability
+    public class Suitability
     {
         public SuitabilityCode Status { get; set; }
         public string Description { get; set; }
         public int Revision { get; set; }
         public List<DataTypes> Applicability { get; set; }
 
+        /// <summary>
+        /// Build a BS1192 Suitability.
+        /// </summary>
         public Suitability()
         {
             this.Status = SuitabilityCode.S0;

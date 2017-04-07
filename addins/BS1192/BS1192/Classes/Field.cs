@@ -7,43 +7,30 @@ using System.Threading.Tasks;
 
 namespace BS1192
 {
-    class Field
+    public class Field
     {
-        private bool Required = false;
-        private int NumberOfChars = 1;
-        private string Value { get
-            {
-                if (Validate() && Verify()) return this.Value;
-                return null;
-            }
-            set
-            {
-                this.Value = value;
-            }
-        }
+        public bool Required { get; set; }
+        public bool FixedNumberOfChars { get; set; }
+        public int NumberOfChars { get; set; }
+        public int MinNumberOfChars { get; set; }
+        public int MaxNumberOfChars { get; set; }
 
         public Field()
         {
             this.Required = false;
             this.NumberOfChars = 1;
-            this.Value = "";
         }
 
-        public string GetValue()
-        {
-            if (Validate() && Verify()) return this.Value;
-            throw new InvalidOperationException("Field value did not pass validation & verification tests.");
-        }
 
         /// <summary>
         /// Perform basic data validation : checks the field is not empty and that the number of characters is satisfied.
         /// </summary>
         /// <returns>True if valid, false otherwise.</returns>
-        private bool Validate()
+        private bool Validate(string s)
         {
-            if (String.IsNullOrEmpty(this.Value)) throw new ArgumentException("Field value cannot be empty or null");
-            if (this.Value.All(char.IsLetterOrDigit)) throw new ArgumentException("Field can only contain alphanumeric characters.");
-            if (this.Value.Count() != this.NumberOfChars) return false;
+            if (String.IsNullOrEmpty(s)) throw new ArgumentException("Field value cannot be empty or null");
+            if (s.All(char.IsLetterOrDigit)) throw new ArgumentException("Field can only contain alphanumeric characters.");
+            if (s.Count() != this.NumberOfChars) return false;
             return true;
         }
 
@@ -52,9 +39,9 @@ namespace BS1192
         /// Example verifies that the field only contains alphanumeric characters.
         /// </summary>
         /// <returns>True if conditions are satisfied, false otherwise.</returns>
-        public virtual bool Verify()
+        public virtual bool Verify(string s)
         {
-            return this.Value.All(char.IsLetterOrDigit);
+            return s.All(char.IsLetterOrDigit);
         }
     }
 }
