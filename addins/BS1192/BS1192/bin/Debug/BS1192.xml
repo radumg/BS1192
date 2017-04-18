@@ -19,13 +19,18 @@
             <param name="propertyName">Properties names, as a list of strings</param>
             <returns>The values of the specified properties, as a list</returns>
         </member>
-        <member name="M:BS1192.Fields.Field.Validate(System.String)">
+        <member name="M:BS1192.Fields.Field.#ctor">
+            <summary>
+            Class constructor with default values of 2-5 character field.
+            </summary>
+        </member>
+        <member name="M:BS1192.Fields.Field.ValidationChecks">
             <summary>
             Perform basic data validation : checks the field is not empty and that the number of characters is satisfied.
             </summary>
             <returns>True if valid, false otherwise.</returns>
         </member>
-        <member name="M:BS1192.Fields.Field.Verify(System.String)">
+        <member name="M:BS1192.Fields.Field.Validate">
             <summary>
             Skeleton implementation of data verification designed to be overriden.
             Example verifies that the field only contains alphanumeric characters.
@@ -149,11 +154,17 @@
             Build a BS1192 Suitability.
             </summary>
         </member>
-        <member name="M:BS1192.Deliverable.GetFormattedName">
+        <member name="M:BS1192.Deliverable.GetBS1192Name">
             <summary>
             Get the BS1192-formatted name of the deliverable
             </summary>
             <returns>BS1192-formatted name of the deliverable, as string.</returns>
+        </member>
+        <member name="M:BS1192.Deliverable.GetFormattedName">
+            <summary>
+            Get the formatted name of the deliverable, taking into account the required fields.
+            </summary>
+            <returns>Formatted name of the deliverable, as string.</returns>
         </member>
         <member name="M:BS1192.Deliverable.GetAllFieldValues">
             <summary>

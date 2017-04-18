@@ -16,6 +16,8 @@ namespace BS1192.Fields
         /// <returns>A Dictionary with Property Name as the key and its corresponding Value</returns>
         public static Dictionary<string, object> DictionaryFromType(object obj)
         {
+            if (obj == null) throw new Exception("DictionaryFromType : Object cannot be null.");
+
             if (obj == null) return new Dictionary<string, object>();
             Type t = obj.GetType();
             PropertyInfo[] props = t.GetProperties();
@@ -36,8 +38,10 @@ namespace BS1192.Fields
         /// <param name="field">Object holding the properties</param>
         /// <param name="propertyName">Properties names, as a list of strings</param>
         /// <returns>The values of the specified properties, as a list</returns>
-        public static List<object> GetPropertyValues(this object field, List<string> propertyNames)
+        public static List<object> GetPropertyValues(object field, List<string> propertyNames)
         {
+            if (field == null) throw new Exception("GetPropertyValues : Field cannot be a null value.");
+
             var values = new List<object>();
             foreach (var name in propertyNames)
             {

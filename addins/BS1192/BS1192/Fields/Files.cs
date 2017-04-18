@@ -11,50 +11,7 @@ namespace BS1192.Fields
     /// </summary>
     public class FileType : Field
     {
-        /// <summary>
-        /// Represents file types for drawings and models	
-        /// </summary>
-        public enum BS1192_ModelFile
-        {
-            AF,
-            CM,
-            CR,
-            DR,
-            M2,
-            M3,
-            MR,
-            VS
-        }
-
-        /// <summary>
-        /// Represents file types for documents	
-        /// </summary>
-        public enum BS1192_Document
-        {
-            BQ,
-            CA,
-            CO,
-            CP,
-            DB,
-            FN,
-            HS,
-            IE,
-            MI,
-            MR,
-            MS,
-            PP,
-            PR,
-            RD,
-            RI,
-            RP,
-            SA,
-            SC,
-            SH,
-            SN,
-            SP,
-            SU,
-            VS
-        }
+        public new FileTypes Value;
 
         /// <summary>
         /// Build a BS1192 file type
@@ -62,7 +19,60 @@ namespace BS1192.Fields
         public FileType()
         {
             this.Required = true;
-            this.NumberOfChars = 1;
+            this.NumberOfChars = 2;
+            this.FixedNumberOfChars = true;
         }
+
+        public override bool Validate()
+        {
+            if (!this.Value.GetType().GetEnumNames().Contains(this.Value.ToString())) return false;
+            return true;
+        }
+    }
+
+    /// <summary>
+    /// Represents all file types valid in BS1192
+    /// </summary>
+    public enum FileTypes
+    {
+        // model files
+        AF,
+        CM,
+        CR,
+        DR,
+        M2,
+        M3,
+        MR,
+        VS
+        // documents
+        BQ,
+        CA,
+        CO,
+        CP,
+        DB,
+        FN,
+        HS,
+        IE,
+        MI,
+        MR,
+        MS,
+        PP,
+        PR,
+        RD,
+        RI,
+        RP,
+        SA,
+        SC,
+        SH,
+        SN,
+        SP,
+        SU,
+        VS
+    }
+
+    public static class Separator
+    {
+        public static string Underscore { get { return "_"; } }
+        public static string Dash { get { return "-"; } }
     }
 }
