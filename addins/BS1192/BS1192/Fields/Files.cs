@@ -43,7 +43,7 @@ namespace BS1192.Fields
         M2,
         M3,
         MR,
-        VS
+        VS,
         // documents
         BQ,
         CA,
@@ -54,7 +54,6 @@ namespace BS1192.Fields
         HS,
         IE,
         MI,
-        MR,
         MS,
         PP,
         PR,
@@ -67,7 +66,6 @@ namespace BS1192.Fields
         SN,
         SP,
         SU,
-        VS
     }
 
     public static class Separator
