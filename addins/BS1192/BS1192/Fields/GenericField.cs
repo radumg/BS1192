@@ -11,7 +11,7 @@ namespace BS1192.Fields
         public int NumberOfChars { get; set; }
         public int MinNumberOfChars { get; set; }
         public int MaxNumberOfChars { get; set; }
-        public virtual string Value { get; set; }
+        public string Value { get; set; }
 
         /// <summary>
         /// Class constructor with default values of 2-5 character field.
@@ -25,7 +25,6 @@ namespace BS1192.Fields
             this.MinNumberOfChars = 2;
             this.Value = "";
         }
-
 
         /// <summary>
         /// Perform basic data validation : checks the field is not empty and that the number of characters is satisfied.

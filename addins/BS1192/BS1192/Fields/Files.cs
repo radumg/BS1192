@@ -11,21 +11,18 @@ namespace BS1192.Fields
     /// </summary>
     public class FileType : Field
     {
+        public Standard.FileTypes CurrentFileType { get; set; }
+
         /// <summary>
         /// Build a BS1192 file type
         /// </summary>
-        public FileType()
+        /// <param name="fileType">The file type to use. If nothing is supplied, AF is used.</param>
+        public FileType(Standard.FileTypes fileType)
         {
             this.Required = true;
             this.NumberOfChars = 2;
             this.FixedNumberOfChars = true;
-        }
-
-        public override bool Validate()
-        {
-            //if (!this.Value.GetType().GetEnumNames().Contains(this.Value.ToString())) return false;
-            return true;
+            this.CurrentFileType = fileType;
         }
     }
-
 }

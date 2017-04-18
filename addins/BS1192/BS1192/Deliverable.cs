@@ -5,7 +5,7 @@ using BS1192.Standard;
 
 namespace BS1192
 {
-    public class Deliverable : Field
+    class Deliverable : Field
     {
         public Field ProjectCode { get; set; }
         public Field Originator { get; set; }
@@ -27,13 +27,13 @@ namespace BS1192
             this.Originator = new Field() { Required = true, MinNumberOfChars = 3, MaxNumberOfChars = 6 };
             this.Volume = new Field() { Required = true, MinNumberOfChars = 3, MaxNumberOfChars = 6 };
             this.Level = new Field() { Required = true, NumberOfChars = 2 };
-            this.FileType = new FileType();
-            this.Role = new Fields.Role();
+            this.FileType = new FileType(Standard.FileTypes.None);
+            this.Role = new Fields.Role(Standard.Role.None);
             this.Classification = new Field() { Required = false, NumberOfChars = 3 };
             this.Number = new Field() { Required = true, NumberOfChars = 4 };
-            this.Suitability = new Suitability(Standard.SuitabilityCode.S0) { Required = false };
-            this.Revision = new Revision();
-            this.Revision.Required = false;
+            this.Suitability = new Suitability(Standard.SuitabilityCode.None) { Required = false };
+            this.Revision = new Revision() { Required = false };
+
         }
 
         /// <summary>
@@ -62,6 +62,11 @@ namespace BS1192
             this.Suitability = suitability;
             this.Revision = revision;
 
+            // inherited properties from Field class
+            this.Required = true;
+            this.FixedNumberOfChars = false;
+            this.MinNumberOfChars = 14;
+            this.MaxNumberOfChars = 30;
         }
 
         /// <summary>

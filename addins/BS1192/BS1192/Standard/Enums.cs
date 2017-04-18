@@ -1,10 +1,14 @@
-﻿namespace BS1192.Standard
+﻿using System;
+
+namespace BS1192.Standard
 {
     /// <summary>
     /// The standard and accepted suitability codes as found in BS1192.
     /// </summary>
+    [Flags]
     public enum SuitabilityCode
     {
+        None = 0,
         S0,
         S1,
         S2,
@@ -25,9 +29,10 @@
     /// <summary>
     /// The standard and accepted data types as referenced in BS1192.
     /// </summary>
+    [Flags]
     public enum DataType
     {
-        NotDefined,
+        NotDefined =0,
         Graphical,
         NonGraphical,
         Document
@@ -36,8 +41,10 @@
     /// <summary>
     /// The standard and accepted roles as found in BS1192.
     /// </summary>
+    [Flags]
     public enum Role
     {
+        None = 0,
         /// <summary>
         /// Architect
         /// </summary>
@@ -72,8 +79,10 @@
     /// <summary>
     /// Represents all file types valid in BS1192
     /// </summary>
+    [Flags]
     public enum FileTypes
     {
+        None = 0,
         // model files
         AF,
         CM,
