@@ -1,5 +1,2 @@
 C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\bin\Debug\BS1192.xml
 C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\bin\Debug\BS1192.dll
-C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\bin\Debug\BS1192.pdb
-C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\obj\Debug\BS1192.dll
-C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\BS1192\obj\Debug\BS1192.pdb

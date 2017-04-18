@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BS1192.Fields;
-using BS1192;
+using BS1192.Standard;
 
 namespace BS1192
 {
@@ -15,24 +12,56 @@ namespace BS1192
         public Field Volume { get; set; }
         public Field Level { get; set; }
         public FileType FileType { get; set; }
-        public Role Role { get; set; }
+        public Fields.Role Role { get; set; }
         public Field Classification { get; set; }
         public Field Number { get; set; }
         public Suitability Suitability { get; set; }
         public Revision Revision { get; set; }
 
+        /// <summary>
+        /// Construct a valid BS1192 deliverable with default values.
+        /// </summary>
         public Deliverable()
         {
             this.ProjectCode = new Field() { Required = true, MinNumberOfChars = 3, MaxNumberOfChars = 6 };
-            this.Originator = new Field() { Required = true, MinNumberOfChars = 3, MaxNumberOfChars = 6 } ;
-            this.Volume = new Field() { Required = true, MinNumberOfChars = 3, MaxNumberOfChars=6 } ;
-            this.Level = new Field() { Required = true, NumberOfChars = 2};
+            this.Originator = new Field() { Required = true, MinNumberOfChars = 3, MaxNumberOfChars = 6 };
+            this.Volume = new Field() { Required = true, MinNumberOfChars = 3, MaxNumberOfChars = 6 };
+            this.Level = new Field() { Required = true, NumberOfChars = 2 };
             this.FileType = new FileType();
-            this.Role = new Role();
+            this.Role = new Fields.Role();
             this.Classification = new Field() { Required = false, NumberOfChars = 3 };
             this.Number = new Field() { Required = true, NumberOfChars = 4 };
-            this.Suitability = new Suitability();
+            this.Suitability = new Suitability(Standard.SuitabilityCode.S0) { Required = false };
             this.Revision = new Revision();
+            this.Revision.Required = false;
+        }
+
+        /// <summary>
+        /// Construct a custom BS1192 deliverable. Requires valid BS1192 fields for each input field.
+        /// </summary>
+        /// <param name="projectCode"></param>
+        /// <param name="originator"></param>
+        /// <param name="volume"></param>
+        /// <param name="level"></param>
+        /// <param name="fileType"></param>
+        /// <param name="role"></param>
+        /// <param name="number"></param>
+        /// <param name="classification"></param>
+        /// <param name="suitability"></param>
+        /// <param name="revision"></param>
+        public Deliverable(Field projectCode, Field originator, Field volume, Field level, FileType fileType, Fields.Role role, Field number, Field classification = null, Suitability suitability = null, Revision revision = null)
+        {
+            this.ProjectCode = projectCode;
+            this.Originator = originator;
+            this.Volume = volume;
+            this.Level = level;
+            this.FileType = fileType;
+            this.Role = role;
+            this.Classification = classification;
+            this.Number = number;
+            this.Suitability = suitability;
+            this.Revision = revision;
+
         }
 
         /// <summary>

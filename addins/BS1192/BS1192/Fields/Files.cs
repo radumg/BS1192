@@ -11,8 +11,6 @@ namespace BS1192.Fields
     /// </summary>
     public class FileType : Field
     {
-        public new FileTypes Value;
-
         /// <summary>
         /// Build a BS1192 file type
         /// </summary>
@@ -25,52 +23,9 @@ namespace BS1192.Fields
 
         public override bool Validate()
         {
-            if (!this.Value.GetType().GetEnumNames().Contains(this.Value.ToString())) return false;
+            //if (!this.Value.GetType().GetEnumNames().Contains(this.Value.ToString())) return false;
             return true;
         }
     }
 
-    /// <summary>
-    /// Represents all file types valid in BS1192
-    /// </summary>
-    public enum FileTypes
-    {
-        // model files
-        AF,
-        CM,
-        CR,
-        DR,
-        M2,
-        M3,
-        MR,
-        VS,
-        // documents
-        BQ,
-        CA,
-        CO,
-        CP,
-        DB,
-        FN,
-        HS,
-        IE,
-        MI,
-        MS,
-        PP,
-        PR,
-        RD,
-        RI,
-        RP,
-        SA,
-        SC,
-        SH,
-        SN,
-        SP,
-        SU,
-    }
-
-    public static class Separator
-    {
-        public static string Underscore { get { return "_"; } }
-        public static string Dash { get { return "-"; } }
-    }
 }

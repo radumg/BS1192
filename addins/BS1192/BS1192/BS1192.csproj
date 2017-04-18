@@ -52,6 +52,7 @@
     <Compile Include="Fields\Roles.cs" />
     <Compile Include="Fields\Suitability.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Standard\Enums.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

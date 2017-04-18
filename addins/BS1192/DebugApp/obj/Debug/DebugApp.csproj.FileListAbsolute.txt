@@ -1,5 +1,0 @@
-C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\bin\Debug\DebugApp.exe.config
-C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\bin\Debug\DebugApp.exe
-C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\bin\Debug\DebugApp.pdb
-C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\obj\Debug\DebugApp.exe
-C:\Users\radug\Documents\GitHub\Playground_Revit\addins\BS1192\DebugApp\obj\Debug\DebugApp.pdb

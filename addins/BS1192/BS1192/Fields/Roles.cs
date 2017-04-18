@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using BS1192.Standard;
 
 namespace BS1192.Fields
 {
@@ -14,65 +11,35 @@ namespace BS1192.Fields
         /// <summary>
         /// The currently assigned role. 
         /// </summary>
-        public BS1192_Role CurrentRole { get; set; }
+        private Standard.Role _role;
 
-        /// <summary>
-        /// A list of the supported BS1192 Role codes
-        /// </summary>
-        public enum BS1192_Role
+        public Standard.Role CurrentRole
         {
-            /// <summary>
-            /// Architect
-            /// </summary>
-            A,
-            B,
-            /// <summary>
-            /// Civil Engineer
-            /// </summary>
-            C,
-            D,
-            E,
-            F,
-            G,
-            H,
-            I,
-            K,
-            L,
-            M,
-            P,
-            Q,
-            S,
-            T,
-            W,
-            X,
-            Y,
-            /// <summary>
-            /// General (non-disciplinary)
-            /// </summary>
-            Z
+            get { return _role; }
+            set
+            {
+                if (value.GetType() != new Standard.Role().GetType()) throw new InvalidCastException("Cannot set role because supplied argument is not a valid BS1192 role");
+                _role = value;
+            }
         }
 
-        /// <summary>
-        /// Sets the current role to the specified one.
-        /// </summary>
-        /// <param name="role">The role to set current one to.</param>
-        /// <returns>The updated current role.</returns>
-        public BS1192_Role SetRole(BS1192_Role role)
-        {
-            if (role.GetType() != new BS1192_Role().GetType()) throw new InvalidCastException("Supplied argumet is not a valid BS1192 role");
-
-            this.CurrentRole = role;
-            return this.CurrentRole;
-        }
 
         /// <summary>
-        /// Build a BS1192 Role.
+        /// Build a BS1192 role field from a standard BS1192 Role. If no role is supplied, it defaults to A.
         /// </summary>
-        public Role()
+        public Role(Standard.Role role = Standard.Role.A)
         {
             this.Required = true;
             this.NumberOfChars = 1;
+            this.FixedNumberOfChars = true;
+
+            // throw exception if argument is invalid.
+            // we do this instead of defaulting to A as user would expect supplied value to be used.
+            if (role.GetType() != new Standard.Role().GetType()) throw new InvalidCastException("Cannot build role field because supplied argument is not a valid BS1192 role");
+
+            this._role = role;
         }
+
     }
 }
 
