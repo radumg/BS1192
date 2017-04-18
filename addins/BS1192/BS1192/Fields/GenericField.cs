@@ -14,7 +14,7 @@ namespace BS1192.Fields
         public int NumberOfChars { get; set; }
         public int MinNumberOfChars { get; set; }
         public int MaxNumberOfChars { get; set; }
-        public virtual object Value { get; set; }
+        public virtual string Value { get; set; }
 
         /// <summary>
         /// Class constructor with default values of 2-5 character field.
