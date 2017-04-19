@@ -15,11 +15,21 @@ namespace BS1192.Fields
         /// </summary>
         public Suitability(Standard.SuitabilityCode s)
         {
-            //if (s == null) throw new ArgumentNullException("Provided suitability code cannot be null or empty.");
-
             this.Status = s;
             this.Applicability = new List<DataType>();
             this.Applicability.Add(DataType.NotDefined);
         }      
+
+        public Suitability(string s)
+        {
+            if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s)) throw new Exception("Cannot build Role because supplied string is null or empty.");
+            Standard.SuitabilityCode code;
+            if (Enum.TryParse(s, out code)) throw new Exception("Could not parse string into Suitability Code.");
+
+            this.Status = code;
+            this.Applicability = new List<DataType>();
+            this.Applicability.Add(DataType.NotDefined);
+
+        }
     }
 }

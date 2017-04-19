@@ -16,14 +16,15 @@ namespace BS1192.Fields
         /// <summary>
         /// Class constructor with default values of 2-5 character field.
         /// </summary>
-        public Field()
+        public Field(string s = null)
         {
             this.Required = false;
             this.FixedNumberOfChars = false;
             this.NumberOfChars = 2;
             this.MaxNumberOfChars = 5;
             this.MinNumberOfChars = 2;
-            this.Value = "";
+            if (!String.IsNullOrEmpty(s)) this.Value = s;
+            else this.Value = "";
         }
 
         /// <summary>

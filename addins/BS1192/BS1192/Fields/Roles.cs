@@ -41,6 +41,21 @@ namespace BS1192.Fields
             this.FixedNumberOfChars = true;
             this.CurrentRole = role;
         }
+
+        public Role(string s)
+        {
+            if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s)) throw new Exception("Cannot build Role because supplied string is null or empty.");
+            Standard.Role role;
+            if (Enum.TryParse(s, out role)) throw new Exception("Could not parse string into Role.");
+
+            this._role = role;
+
+            this.Required = true;
+            this.NumberOfChars = 1;
+            this.FixedNumberOfChars = true;
+            this.CurrentRole = role;
+        }
+
     }
 }
 
