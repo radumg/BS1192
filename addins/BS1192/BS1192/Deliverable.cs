@@ -157,17 +157,17 @@ namespace BS1192
 
         public string GetOriginatorAsString()
         {
-            return this.Originator.Value;
+            return this.Originator._value;
         }
 
         public string GetVolumeAsString()
         {
-            return this.Volume.Value;
+            return this.Volume._value;
         }
 
         public string GetLevelAsString()
         {
-            return this.Level.Value;
+            return this.Level._value;
         }
 
         public string GetFileTypeAsString()
@@ -182,17 +182,17 @@ namespace BS1192
 
         public string GetNumberAsString()
         {
-            return this.Number.Value;
+            return this.Number._value;
         }
 
         public string GetClassificationAsString()
         {
-            return this.Classification.Value;
+            return this.Classification._value;
         }
 
         public string GetSuitabilityAsString()
         {
-            return this.Suitability.Value;
+            return this.Suitability._value;
         }
 
         public string GetRevisionAsString()

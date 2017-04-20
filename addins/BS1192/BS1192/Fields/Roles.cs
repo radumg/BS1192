@@ -30,11 +30,9 @@ namespace BS1192.Fields
         /// </summary>
         public Role(Standard.Role role)
         {
-            // throw exception if argument is invalid.
+            // throws exception if argument is invalid.
             // we do this instead of defaulting to A as user would expect supplied value to be used.
-            if (role.GetType() != new Standard.Role().GetType()) throw new InvalidCastException("Cannot build role field because supplied argument is not a valid BS1192 role");
-
-            this._role = role;
+            this.CurrentRole = role;
 
             this.Required = true;
             this.NumberOfChars = 1;
@@ -44,12 +42,12 @@ namespace BS1192.Fields
 
         public Role(string s)
         {
-            if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s)) throw new Exception("Cannot build Role because supplied string is null or empty.");
             Standard.Role role;
-            if (Enum.TryParse(s, out role)) throw new Exception("Could not parse string into Role.");
+
+            if (CheckStringFormat(s)) throw new Exception("Cannot build Role because supplied string is invalid");
+            if (!Enum.TryParse(s, out role)) throw new Exception("Could not parse string into Role.");
 
             this._role = role;
-
             this.Required = true;
             this.NumberOfChars = 1;
             this.FixedNumberOfChars = true;

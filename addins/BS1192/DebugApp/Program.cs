@@ -3,13 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BS1192;
+using BS1192.Standard;
 
 namespace DebugApp
 {
     class Program
     {
         static void Main(string[] args)
+        {
+            string bs = "15183-GAL-XX-00-DR-A-qwert-0000-S1-P2";
+            Console.WriteLine(bs);
+            string[] fields = bs.Split('-');
+
+            var projcode = fields[0];
+            var orig = fields[1];
+            var vol = fields[2];
+            var level = fields[3];
+            var type = fields[4];
+            var role = fields[5];
+            var number = "";
+            var clas = "";
+            int index = 6;
+            if (fields[index].All(char.IsNumber))
+            {
+                number = fields[index];
+                index++;
+            }
+            else
+            {
+                clas = fields[6];
+                number = fields[7];
+                index += 2;
+            }
+            var suit = "";
+            if (index < fields.Length)  suit = fields[index];
+            index++;
+            var rev = "";
+            if (index < fields.Length) rev = fields[index];
+
+            Enum.TryParse(role, out BS1192.Standard.Role parsebool);
+
+            Console.WriteLine("projcode : " + projcode );
+            Console.WriteLine("orig : " + orig);
+            Console.WriteLine("vol : " + vol);
+            Console.WriteLine("level : " + level);
+            Console.WriteLine("type : " + type);
+            Console.WriteLine("role : " + role + " / " + parsebool.ToString() );
+            Console.WriteLine("number : " + number);
+            Console.WriteLine("clas : " + clas);
+            Console.WriteLine("suit : " + suit);
+            Console.WriteLine("rev : " + rev);
+
+            foreach (var item in fields)
+            {
+                Console.WriteLine(item);
+            }
+            Console.ReadKey();
+        }
+        /*
+        static void ClassesTests()
         {
             var rev1 = new BS1192.Revision();
             Console.WriteLine("Fresh revision  : " + rev1.GetAsString());
@@ -42,13 +94,11 @@ namespace DebugApp
             hl();
 
             Console.WriteLine("Roles");
-            Console.WriteLine("Default role \t: " + BS1192.Role.CurrentRole);
             Console.Write("Set to Struct \t: "); BS1192.Role.SetRole(BS1192.Roles.S); Console.WriteLine(BS1192.Role.CurrentRole);
             Console.Write("Set to MEP  \t: "); BS1192.Role.SetRole(BS1192.Roles.M); Console.WriteLine(BS1192.Role.CurrentRole);
 
-            Console.ReadKey();
         }
-
+        */
         static void hl()
         {
             Console.WriteLine(Environment.NewLine + "--------------------------------------------------------" + Environment.NewLine);

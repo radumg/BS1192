@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fields\Volume.cs" />
     <Compile Include="Fields\Utils.cs" />
     <Compile Include="Deliverable.cs" />
     <Compile Include="Fields\GenericField.cs" />

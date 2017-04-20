@@ -24,7 +24,7 @@ namespace BS1192.Fields
         {
             if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s)) throw new Exception("Cannot build Role because supplied string is null or empty.");
             Standard.SuitabilityCode code;
-            if (Enum.TryParse(s, out code)) throw new Exception("Could not parse string into Suitability Code.");
+            if (!Enum.TryParse(s, out code)) throw new Exception("Could not parse string into Suitability Code.");
 
             this.Status = code;
             this.Applicability = new List<DataType>();
