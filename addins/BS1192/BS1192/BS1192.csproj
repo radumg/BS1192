@@ -45,11 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fields\Originator.cs" />
+    <Compile Include="Fields\Level.cs" />
     <Compile Include="Fields\Volume.cs" />
     <Compile Include="Fields\Utils.cs" />
     <Compile Include="Deliverable.cs" />
     <Compile Include="Fields\GenericField.cs" />
-    <Compile Include="Fields\Files.cs" />
+    <Compile Include="Fields\FileType.cs" />
     <Compile Include="Fields\Revision.cs" />
     <Compile Include="Fields\Roles.cs" />
     <Compile Include="Fields\Suitability.cs" />

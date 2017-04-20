@@ -117,6 +117,20 @@ namespace BS1192.Standard
     }
 
     /// <summary>
+    /// Represents the non-numbered possible codifications of levels as in BS1192
+    /// </summary>
+    [Flags]
+    public enum Levels
+    {
+        None,
+        B1,
+        B2,
+        B3,
+        GF,
+        RF
+    }
+
+    /// <summary>
     /// Represents valid BS1192 separators. Dash used between fields and underscore within a field.
     /// </summary>
     public struct Separator
