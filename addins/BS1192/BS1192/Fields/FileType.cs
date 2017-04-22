@@ -38,7 +38,7 @@ namespace BS1192.Fields
 
         public FileType(string s)
         {
-            if (CheckStringFormat(s)) throw new Exception("Cannot build FileType because supplied string is invalid");
+            if (CheckFormatAndLength(s)) throw new Exception("Cannot build FileType because supplied string is invalid");
             if (!Enum.TryParse(s, out Standard.FileTypes filetype)) throw new Exception("Could not parse string into FileType.");
 
             // we set the public value so it goes through the set accessor, doing an additional layer of verification

@@ -58,6 +58,24 @@ namespace DebugApp
             {
                 Console.WriteLine(item);
             }
+
+            List<string> levels = new List<string> { "01", "02", "GF", "007", "13", "68", "RF" };
+
+            foreach (string l in levels)
+            {
+                if (l.All(char.IsDigit))
+                {
+                    // remove all preceding 0s and see if a valid number is left.
+                    Console.WriteLine("original : " + l);
+                    Console.Write("decomposing : ");
+                    while (l.StartsWith("0")) { l.Remove(0, 1); Console.Write(l + ","); }
+                    if (int.TryParse(l, out int val)) throw new Exception("Could not parse string into an int value for Level.");
+                    Console.WriteLine("final : " + l);
+                    Console.WriteLine("parsed : " + val.ToString());
+
+                }
+                //else if (!Enum.TryParse(l, out BS1192.Standard.Levels lev)) throw new Exception("Could not parse string into Level.");
+            }
             Console.ReadKey();
         }
         /*

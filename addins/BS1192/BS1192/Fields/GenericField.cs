@@ -4,13 +4,14 @@ using BS1192.Standard;
 
 namespace BS1192.Fields
 {
-    public class Field
+    public partial class Field
     {
         public bool Required { get; set; }
         public bool FixedNumberOfChars { get; set; }
         public int NumberOfChars { get; set; }
         public int MinNumberOfChars { get; set; }
         public int MaxNumberOfChars { get; set; }
+        public bool IsValid { get { return Validate(); } }
 
         // backing store for each Field's value
         internal string _value { get; set; }
@@ -21,7 +22,7 @@ namespace BS1192.Fields
         public virtual string Value
         {
             get { return _value; }
-            set { if (CheckStringFormat(value)) _value = value; }
+            set { if (CheckFormatAndLength(value)) _value = value; }
         }
 
         /// <summary>
@@ -36,34 +37,12 @@ namespace BS1192.Fields
             this.MinNumberOfChars = 2;
             try
             {
-                if (CheckStringFormat(s)) this._value = s;
+                if (CheckFormatAndLength(s)) this._value = s;
             }
             catch (Exception)
             {
                 this._value = "";
             }
-        }
-
-        /// <summary>
-        /// Perform basic data validation : checks the field is not empty and that the number of characters is satisfied.
-        /// </summary>
-        /// <returns>True if valid, false otherwise.</returns>
-        internal bool CheckStringFormat(string s)
-        {
-            if (String.IsNullOrEmpty(s) || String.IsNullOrWhiteSpace(s)) throw new ArgumentException("Field value cannot be empty or null");
-            if (s.All(char.IsLetterOrDigit)) throw new ArgumentException("Field can only contain alphanumeric characters.");
-            if (this.FixedNumberOfChars == true)
-            {
-                if (s.Count() != this.NumberOfChars)
-                    throw new ArgumentException("Field must be precisely the number of required characters. (" + this.NumberOfChars + ")");
-            }
-            else
-            {
-                if (s.Count() > this.MaxNumberOfChars || s.Count() < this.MinNumberOfChars)
-                    throw new ArgumentException("Field must have the number of characters within the required ranged : " + this.MinNumberOfChars + " to " + this.MaxNumberOfChars);
-            }
-
-            return true;
         }
 
         /// <summary>
@@ -73,7 +52,7 @@ namespace BS1192.Fields
         /// <returns>True if conditions are satisfied, false otherwise.</returns>
         public virtual bool Validate()
         {
-            return this.CheckStringFormat(this.Value);
+            return this.CheckFormatAndLength(this.Value);
         }
 
     }

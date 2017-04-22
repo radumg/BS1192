@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fields\Helpers.cs" />
     <Compile Include="Fields\Originator.cs" />
     <Compile Include="Fields\Level.cs" />
     <Compile Include="Fields\Volume.cs" />

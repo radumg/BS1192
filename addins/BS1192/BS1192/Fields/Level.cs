@@ -15,15 +15,14 @@ namespace BS1192.Fields
             this.NumberOfChars = 2;
             this.FixedNumberOfChars = true;
 
-            if (CheckStringFormat(s)) throw new Exception();
+            if (CheckFormatAndLength(s)) throw new Exception();
 
-            if (s.All(char.IsDigit))
+            // if Level contains only digits
+            if (IsNumeric(s))
             {
-                while (s.StartsWith("0")) { s.Remove(0, 1); }
-                int.TryParse(s, out int value);
+                if(int.TryParse(s, out int value)) throw new Exception("Could not parse string into an int value for Level.");
+                else this.Value = value.ToString();
             }
-            else if (s.All(char.IsDigit)) { int.TryParse(s, out int value);
- }
             else if (!Enum.TryParse(s, out Standard.Levels level)) throw new Exception("Could not parse string into Level.");
 
             // we set this at the end as the Value set accessor does validation taking into account properties above
