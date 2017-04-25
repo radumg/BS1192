@@ -34,11 +34,6 @@ namespace DebugApp
             Console.WriteLine("(4) level : " + level);
             Console.WriteLine("(5) type : " + type);
 
-            var typesList = new List<object>();
-            typesList.Add(BS1192.Standard.Role.None);
-            typesList.Add(SuitabilityCode.None);
-            typesList.Add(new Revision());
-
             for (int i = index; i < fields.Length; i++)
             {
                 var pr = Validation.IsValidRole(fields[i]);
@@ -58,6 +53,24 @@ namespace DebugApp
                 Console.WriteLine("   Suitability : " + ps.ToString() + " // parsed (" + Validation.ParseSuitabilityCode(fields[i]).ToString() + ")");
                 Console.WriteLine("   Revision    : " + pR.ToString());
             }
+
+            // LINQ
+            var joined = string.Join(",", fields);
+            Console.WriteLine("Joined : " + joined);
+            var myList = (from item in fields
+                          where Enum.TryParse(item, out BS1192.Standard.Role t) == true
+                          select (BS1192.Standard.Role)Enum.Parse(typeof(BS1192.Standard.Role), item)).ToList();
+            Console.WriteLine("list of parse role enums :");
+            myList.ForEach(i => Console.Write("{0}\t", i));
+            Console.WriteLine("......");
+
+            ///
+
+            Console.WriteLine("=================== auto ");
+
+
+
+
 
             Enum.TryParse(role, out BS1192.Standard.Role parsedRole);
 
