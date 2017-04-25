@@ -58,6 +58,7 @@
     <Compile Include="Fields\Suitability.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Standard\Enums.cs" />
+    <Compile Include="Validation\Deserialisations.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

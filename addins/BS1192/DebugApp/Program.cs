@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BS1192.Standard;
+using BS1192.Fields;
+using BS1192;
 
 namespace DebugApp
 {
@@ -11,7 +13,7 @@ namespace DebugApp
     {
         static void Main(string[] args)
         {
-            string bs = "15183-GAL-XX-00-DR-A-qwert-0000-S1-P2";
+            string bs = "15183-GAL-XX-00-DR-A-classification-0000-S1-P2";
             Console.WriteLine(bs);
             string[] fields = bs.Split('-');
 
@@ -24,36 +26,50 @@ namespace DebugApp
             var number = "";
             var clas = "";
             int index = 6;
-            if (fields[index].All(char.IsNumber))
-            {
-                number = fields[index];
-                index++;
-            }
-            else
-            {
-                clas = fields[6];
-                number = fields[7];
-                index += 2;
-            }
-            var suit = "";
-            if (index < fields.Length)  suit = fields[index];
-            index++;
-            var rev = "";
-            if (index < fields.Length) rev = fields[index];
 
-            Enum.TryParse(role, out BS1192.Standard.Role parsebool);
 
-            Console.WriteLine("projcode : " + projcode );
-            Console.WriteLine("orig : " + orig);
-            Console.WriteLine("vol : " + vol);
-            Console.WriteLine("level : " + level);
-            Console.WriteLine("type : " + type);
-            Console.WriteLine("role : " + role + " / " + parsebool.ToString() );
+            Console.WriteLine("(1) projcode : " + projcode);
+            Console.WriteLine("(2) orig : " + orig);
+            Console.WriteLine("(3) vol : " + vol);
+            Console.WriteLine("(4) level : " + level);
+            Console.WriteLine("(5) type : " + type);
+
+            var typesList = new List<object>();
+            typesList.Add(BS1192.Standard.Role.None);
+            typesList.Add(SuitabilityCode.None);
+            typesList.Add(new Revision());
+
+            for (int i = index; i < fields.Length; i++)
+            {
+                var pr = Validation.IsValidRole(fields[i]);
+                var ps = Validation.IsValidSuitabilityCode(fields[i]);
+                var R = new Revision();
+                bool pR;
+
+                try
+                {
+                    R.Value = fields[i];
+                    pR = R.Validate();
+                }
+                catch (Exception) { pR = false; }
+
+                Console.WriteLine("(" + i.ToString() + ") " + fields[i] + " : ");
+                Console.WriteLine("   Role        : " + pr.ToString() + " // parsed (" + Validation.ParseRole(fields[i]).ToString() + ")");
+                Console.WriteLine("   Suitability : " + ps.ToString() + " // parsed (" + Validation.ParseSuitabilityCode(fields[i]).ToString() + ")");
+                Console.WriteLine("   Revision    : " + pR.ToString());
+            }
+
+            Enum.TryParse(role, out BS1192.Standard.Role parsedRole);
+
+            Console.WriteLine("role : " + role + " / parsed : " + parsedRole.ToString());
             Console.WriteLine("number : " + number);
             Console.WriteLine("clas : " + clas);
-            Console.WriteLine("suit : " + suit);
-            Console.WriteLine("rev : " + rev);
 
+            //Enum.TryParse(suit, out BS1192.Standard.SuitabilityCode parsedSuitability);
+
+            //Console.WriteLine("suit : " + suit + " / parsed : " + parsedSuitability.ToString());
+            //Console.WriteLine("rev : " + rev);
+            /*
             foreach (var item in fields)
             {
                 Console.WriteLine(item);
@@ -76,6 +92,8 @@ namespace DebugApp
                 }
                 //else if (!Enum.TryParse(l, out BS1192.Standard.Levels lev)) throw new Exception("Could not parse string into Level.");
             }
+            */
+
             Console.ReadKey();
         }
         /*

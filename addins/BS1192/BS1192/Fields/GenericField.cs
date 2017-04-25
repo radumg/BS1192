@@ -19,21 +19,25 @@ namespace BS1192.Fields
         /// <summary>
         /// client-visible property designed to be overriden
         /// </summary>
-        public virtual string Value
+        public string Value
         {
             get { return _value; }
-            set { if (CheckFormatAndLength(value)) _value = value; }
+            set
+            {
+                if (CheckFormatAndLength(value)) _value = value;
+                else throw new InvalidOperationException("The supplied field value is invalid.");
+            }
         }
 
         /// <summary>
-        /// Class constructor with default values of 2-5 character field.
+        /// Class constructor with default values of 2-15 character field.
         /// </summary>
         public Field(string s = null)
         {
             this.Required = false;
             this.FixedNumberOfChars = false;
             this.NumberOfChars = 2;
-            this.MaxNumberOfChars = 5;
+            this.MaxNumberOfChars = 15;
             this.MinNumberOfChars = 2;
             try
             {
@@ -54,6 +58,5 @@ namespace BS1192.Fields
         {
             return this.CheckFormatAndLength(this.Value);
         }
-
     }
 }
