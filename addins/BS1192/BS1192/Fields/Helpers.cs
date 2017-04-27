@@ -15,7 +15,7 @@ namespace BS1192.Fields
         internal bool CheckFormatAndLength(string s)
         {
             if (String.IsNullOrEmpty(s) || String.IsNullOrWhiteSpace(s)) throw new ArgumentException("Field value cannot be empty or null");
-            if (s.All(char.IsLetterOrDigit)) throw new ArgumentException("Field can only contain alphanumeric characters.");
+            if (!IsAlphanumeric(s)) throw new ArgumentException("Field can only contain alphanumeric characters.");
             if (this.FixedNumberOfChars == true && s.Count() != this.NumberOfChars)
                 throw new ArgumentException("Field must be precisely the number of required characters. (" + this.NumberOfChars + ")");
             else

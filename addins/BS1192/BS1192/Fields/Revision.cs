@@ -31,7 +31,7 @@ namespace BS1192.Fields
             get { return this.prefix; }
             set
             {
-                if (String.IsNullOrEmpty(value)) throw new InvalidOperationException("The prefix cannot be null or empty.");
+                if (String.IsNullOrEmpty(value) || String.IsNullOrWhiteSpace(value)) throw new InvalidOperationException("The prefix cannot be null or empty.");
                 if (value.Count() > 1) throw new InvalidOperationException("The prefix cannot be longer than 1 character.");
                 this.prefix = value;
             }
@@ -114,6 +114,15 @@ namespace BS1192.Fields
             if (major < 1) throw new InvalidOperationException("Cannot set the major of a revision to a negative value or zero.");
             if (major > 99) throw new Exception("Revision would be 3 digits long which is not supported by BS1192.");
             this.major = major;
+            return this;
+        }
+
+        /// <summary>
+        /// Set the prefix to be used for the revision formatting.
+        /// </summary>
+        public Revision SetPrefix(string prefix)
+        {
+            this.Prefix = prefix;
             return this;
         }
 

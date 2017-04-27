@@ -8,6 +8,8 @@ namespace BS1192.Fields
     /// </summary>
     public class Volume : Field
     {
+        public string Value { get { return base.Value; } }
+
         public Volume(string s)
         {
             this.Required = true;
@@ -15,7 +17,7 @@ namespace BS1192.Fields
             this.FixedNumberOfChars = true;
 
             // we set this at the end as the Value set accessor does validation taking into account properties above
-            this.Value = s;
+            base.Value = s;
         }
     }
 }
