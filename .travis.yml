@@ -1,0 +1,2 @@
+language: csharp
+solution: src/BS1192.sln
