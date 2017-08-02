@@ -1,37 +1,8 @@
-## Welcome to GitHub Pages
+# BS1192 
+[![Build Status](https://travis-ci.org/radumg/BS1192.svg?branch=master)](https://travis-ci.org/radumg/BS1192) [![GitHub version](https://badge.fury.io/gh/radumg%2FBS1192.svg)](https://badge.fury.io/gh/radumg%2FBS1192) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/radumg/BS1192/blob/master/docs/CONTRIBUTING.md)
+---
+**BS1192** is a [Dynamo](http://www.dynamobim.org) package providing tools to better handle BS1192 workflows, without needing Revit.
 
-You can use the [editor on GitHub](https://github.com/radumg/BS1192/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+## Status
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/radumg/BS1192/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+This is an experimental package and should not be relied upon until a stable release version is reached (1.0).
