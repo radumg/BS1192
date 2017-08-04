@@ -1,0 +1,1 @@
+This folder houses all the testing (unit, integration, etc) code for the BS1192 package.
