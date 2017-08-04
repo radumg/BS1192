@@ -24,7 +24,7 @@ Please read [CONTRIBUTING.md](https://github.com/radumg/BS1192/blob/master/docs/
 ## Versioning & Releases
 
 BS1192 useS the [SemVer](http://semver.org/) semantic versioning standard.
-For the versions available, see the versions listed in the Dynamo package manager or [releases on this repository](https://github.com/radumg/DynAsana/releases).
+For the versions available, see the versions listed in the Dynamo package manager or [releases on this repository](https://github.com/radumg/BS1192/releases).
 The versioning for this project is `X.Y.Z` where
 - `X` is a major release, which may not be fully compatible with prior major releases
 - `Y` is a minor release, which adds both new features and bug fixes
@@ -36,7 +36,7 @@ The versioning for this project is `X.Y.Z` where
 
 ## License
 
-This project is licensed under the GNU AGPL 3.0 License - see the [LICENSE FILE](https://github.com/radumg/BS1192/blob/master/docs/LICENSE) for details.
+This project is licensed under the GNU AGPL 3.0 License - see the [LICENSE FILE](https://github.com/radumg/BS1192/blob/master/LICENSE) for details.
 
 ## Acknowledgments
 
