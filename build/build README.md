@@ -1,0 +1,1 @@
+This folder houses all the compiled builds (releases) of the BS1192 package, organised into versions.
