@@ -1,4 +1,5 @@
 # BS1192 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5ae677e39cf645f4b4bc2b5260c894c3)](https://www.codacy.com/app/radugidei/BS1192?utm_source=github.com&utm_medium=referral&utm_content=radumg/BS1192&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/radumg/BS1192.svg?branch=master)](https://travis-ci.org/radumg/BS1192) [![GitHub version](https://badge.fury.io/gh/radumg%2FBS1192.svg)](https://badge.fury.io/gh/radumg%2FBS1192) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/radumg/BS1192/blob/master/docs/CONTRIBUTING.md)
 ---
 
