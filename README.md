@@ -1,6 +1,7 @@
 # BS1192 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/5ae677e39cf645f4b4bc2b5260c894c3)](https://www.codacy.com/app/radugidei/BS1192?utm_source=github.com&utm_medium=referral&utm_content=radumg/BS1192&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/radumg/BS1192.svg?branch=master)](https://travis-ci.org/radumg/BS1192) [![GitHub version](https://badge.fury.io/gh/radumg%2FBS1192.svg)](https://badge.fury.io/gh/radumg%2FBS1192) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/radumg/BS1192/blob/master/docs/CONTRIBUTING.md)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fradumg%2FBS1192.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fradumg%2FBS1192?ref=badge_shield)
 ---
 
 **BS1192** is a package providing tools to better handle BS1192 workflows.
@@ -38,6 +39,9 @@ The versioning for this project is `X.Y.Z` where
 ## License
 
 This project is licensed under the GNU AGPL 3.0 License - see the [LICENSE FILE](https://github.com/radumg/BS1192/blob/master/LICENSE) for details.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fradumg%2FBS1192.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fradumg%2FBS1192?ref=badge_large)
 
 ## Acknowledgments
 
